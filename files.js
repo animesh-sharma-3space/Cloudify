@@ -38,11 +38,11 @@ async function sendToAI() {
   });
 
   try {
-    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userid}/${filename}`);
+    const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/fetchFile/${userid}/${filename}`);
     const content = await res.text();
     console.log(content);
 
-    const ai = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/askai`, {
+    const ai = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/askai`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: content, prompt: prompt })
@@ -72,7 +72,7 @@ async function sendToAI() {
 async function loadFiles(userId) {
     console.log("loadFiles called with userId:", userId);
     try {
-      const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userId}`);
+      const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/fetch/${userId}`);
       const files = await res.json();
   
       const container = document.getElementById("mainContent");
@@ -123,7 +123,7 @@ async function loadFiles(userId) {
     }
   }
   async function editFile(userId, fileName) {
-    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userId}/${fileName}`);
+    const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/fetchFile/${userId}/${fileName}`);
     const content = await res.text();
   
     const container = document.getElementById("mainContent");
@@ -151,7 +151,7 @@ async function loadFiles(userId) {
   async function saveFile(userId, fileName) {
     const updatedContent = document.getElementById("editor").value;
   
-    const res = await fetch(`http://localhost:4000/saveFile/${userId}/${fileName}`, {
+    const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/saveFile/${userId}/${fileName}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: updatedContent })
@@ -166,7 +166,7 @@ async function loadFiles(userId) {
   }
 
 async function filedelete(filename,user_id){
-  const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${user_id}/${filename}`, {
+  const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/delete/${user_id}/${filename}`, {
       method: "DELETE",
     });
     if(res.flag){
@@ -177,3 +177,4 @@ async function filedelete(filename,user_id){
     }
 
 }
+
