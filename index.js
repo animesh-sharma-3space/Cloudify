@@ -38,7 +38,7 @@ async function upload() {
   }
 
   try {
-    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/upload/${user}`, {
+    const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/upload/${user}`, {
       method: "POST",
       body: formData
     });
@@ -59,7 +59,7 @@ async function upload() {
 
 async function loadFiles(userId) {
     try {
-      const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/fetch/${userId}`);
+      const res = await fetch(`https://placement-entity-attitude-obligation.trycloudflare.com/fetch/${userId}`);
       const data = await res.json();
   
       const container = document.getElementById("mainContent");
@@ -87,3 +87,4 @@ async function loadFiles(userId) {
     }
 
   }
+
