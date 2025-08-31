@@ -38,7 +38,7 @@ async function upload() {
   }
 
   try {
-    const res = await fetch(`http://localhost:4000/upload/${user}`, {
+    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/upload/${user}`, {
       method: "POST",
       body: formData
     });
@@ -59,7 +59,7 @@ async function upload() {
 
 async function loadFiles(userId) {
     try {
-      const res = await fetch(`http://localhost:4000/fetch/${userId}`);
+      const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/fetch/${userId}`);
       const data = await res.json();
   
       const container = document.getElementById("mainContent");
@@ -85,4 +85,5 @@ async function loadFiles(userId) {
     } catch (err) {
       console.error(err);
     }
+
   }
