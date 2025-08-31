@@ -38,11 +38,11 @@ async function sendToAI() {
   });
 
   try {
-    const res = await fetch(`http://localhost:4000/fetchFile/${userid}/${filename}`);
+    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userid}/${filename}`);
     const content = await res.text();
     console.log(content);
 
-    const ai = await fetch(`http://localhost:4000/askai`, {
+    const ai = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/askai`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: content, prompt: prompt })
@@ -72,7 +72,7 @@ async function sendToAI() {
 async function loadFiles(userId) {
     console.log("loadFiles called with userId:", userId);
     try {
-      const res = await fetch(`http://localhost:4000/fetch/${userId}`);
+      const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userId}`);
       const files = await res.json();
   
       const container = document.getElementById("mainContent");
@@ -123,7 +123,7 @@ async function loadFiles(userId) {
     }
   }
   async function editFile(userId, fileName) {
-    const res = await fetch(`http://localhost:4000/fetchFile/${userId}/${fileName}`);
+    const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${userId}/${fileName}`);
     const content = await res.text();
   
     const container = document.getElementById("mainContent");
@@ -166,7 +166,7 @@ async function loadFiles(userId) {
   }
 
 async function filedelete(filename,user_id){
-  const res = await fetch(`http://localhost:4000/delete/${user_id}/${filename}`, {
+  const res = await fetch(`https://chest-temple-catering-advertisers.trycloudflare.com/${user_id}/${filename}`, {
       method: "DELETE",
     });
     if(res.flag){
@@ -175,4 +175,5 @@ async function filedelete(filename,user_id){
     else{
       alert("FAILED TO DELETE THE FILE");
     }
+
 }
